@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class='dashboard-app'>
+  <div class='dashboard-content'>
+    <div class='container'>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4 text text-center">All Incomes:-</h1>
+          <hr>
+        </div>
+
+        <div class="container">
+          <br>
+          <span>
+            <select name="dropDown" id="" size="1" onchange="window.location.href=this.value;">
+              <option value="zero" selected>Sort :-</option>
+              <option value="/sortbydateincome"><a href="">Date &darr;</a></option>
+              <option value="/sortbydateincome2"><a href="">Date &uarr;</option>
+              <option value="/sortbyamtincome"><a href="">Amount &darr;</option>
+              <option value="/sortbyamtincome2"><a href="">Amount &uarr;</option>
+            </select>
+            <select name="dropDown1" id="" size="1" onchange="window.location.href=this.value;">
+              <option value="zero" selected>Category :-</option>
+              <option value="/incomecatbuss"><a href="">Business</a></option>
+              <option value="/incomecatfreela"><a href="">Freelancing</option>
+              <option value="/incomecatsalary"><a href="">Salary</option>
+              <option value="/incomecatother"><a href="">Other</option>
+            </select>
+            <a href="{% url 'viewincome' %}" class="link-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+              </svg></a>
+          </span>
+          <br><br>
+          <table class="table table-striped table-hover table-light table-bordered table-center"
+            style="text-align: center;">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">DATE</th>
+                <th scope="col">TIME</th>
+                <th scope="col">AMOUNT</th>
+                <th scope="col">REMARK</th>
+                <th scope="col">CATEGORY</th>
+                <th colspan="2" textalign="centre">ACTIONS</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in idata %}
+              <tr>
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.date}}</td>
+                <td>{{data.time}}</td>
+                <td>{{data.amount}}</td>
+                <td>{{data.remark}}</td>
+                <td>{{data.category}}</td>
+                <td>
+                  <a href="/searchincomedata/{{data.id}}" style="color:green; font-weight: bold">Edit</a>
+                </td>
+                <td>
+                  <a href="/deleteincome/{{data.id}}" style="color:red; font-weight: bold">Delete</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

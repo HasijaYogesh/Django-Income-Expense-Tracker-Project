@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class='dashboard-app'>
+    <div class='dashboard-content'>
+        <div class='container'>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-5 text text-center">Update Expenses:-</h1>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+                    <div class="wrapper">
+                        <form action="{% url 'saveeditexpense' %}">
+                            <div id="wizard">
+                                
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                             name="id" value="{{data.id}}" readonly > </div>
+                                    <br>
+
+                                    <div class="form-row"> <input type="date" class="form-control"
+                                             name="date"  required > </div>
+                                    <br>
+                                    <div class="form-row"> <input type="time" class="form-control"
+                                             name="time" value="{{data.time}}" required> </div>
+                                    <br>
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                             name="amount" value="{{data.amount}}" required> </div>
+                                    <br>
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                             name="remark" value="{{data.remark}}" required> </div>
+                                    <br>
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="category" value="{{data.category}}"
+                                        required>
+                                        <option selected>Select Category</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Travel">Travel</option>
+                                        <option value="Donation">Donation</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <br>
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                        name="user_id" value="{{data.user_id}}" readonly > </div>
+                                    <br>
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Update</button>
+                                    </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

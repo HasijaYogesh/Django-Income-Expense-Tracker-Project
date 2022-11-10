@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class='dashboard-app'>
+    <div class='dashboard-content'>
+        <div class='container'>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-5 text text-center">Add Income:-</h1>
+                    <hr>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+                    <div class="wrapper">
+                        <form action="saveincomedata">
+                            <div id="wizard">
+                                
+                                    <div class="form-row"> <input type="date" class="form-control"
+                                            placeholder="Enter Date" name="date" required> </div>
+                                    <br>
+                                    <div class="form-row"> <input type="time" class="form-control"
+                                            placeholder="Enter Time" name="time" required> </div>
+                                    <br>
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                            placeholder="Enter Amount" name="amount" required> </div>
+                                    <br>
+                                    <div class="form-row"> <input type="text" class="form-control"
+                                            placeholder="Enter Remark" name="remark" required> </div>
+                                    <br>
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="category"
+                                        required>
+                                        <option value="Not given" selected>Select Category</option>
+                                        <option value="Business">Business</option>
+                                        <option value="Freelancing">Freelancing</option>
+                                        <option value="Salary">Salary</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <br>
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
